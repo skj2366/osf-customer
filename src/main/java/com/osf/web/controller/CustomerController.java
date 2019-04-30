@@ -19,13 +19,13 @@ public class CustomerController {
 	@Autowired
 	private CustomerInfoService cis;
 	
-	@RequestMapping("uri/list")
+	@RequestMapping("/uri/list")
 	public String customerList(Model m) {
 		m.addAttribute("list",cis.selectCustomerList());
 		return "/uri/list";
 	}
 
-	@RequestMapping(value="uri/insert",method=RequestMethod.POST)
+	@RequestMapping(value="/uri/insert",method=RequestMethod.POST)
 	public String joinCustomer(Model m,@RequestParam Map<String, String> ci) {
 		log.debug("param=>{}",ci);
 		m.addAttribute("insertInfo",cis.insertCustomer(ci));
