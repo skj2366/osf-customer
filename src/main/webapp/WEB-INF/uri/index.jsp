@@ -30,7 +30,7 @@
   				<th>ID</th>
   				<th>PWD</th>
   			</tr>
-  			<!-- <c:forEach items="${empList}" var="e"> 나는 왜 이걸로 했을때도 나오는거야 ?????????? #으로 했는데 </c:forEach> -->
+  			<!-- <c:forEach items="#{empList}" var="e"> 나는 왜 이걸로 했을때도 나오는거야 ?????????? #으로 했는데 </c:forEach> -->
   			<c:forEach items="${empList}" var="e">	
   			<tr>
   				<td>${e.EMPNO}</td>
