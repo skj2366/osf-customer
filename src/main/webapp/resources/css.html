@@ -5,20 +5,31 @@
 <title>안녕하세요.</title>
 </head>
 <style>
-p{
-	color:red;
+label{
+	color: red;
 }
-div{
-	color:blue;
+
+div label{
+	color: blue;
 }
-#rDiv{
-	color:green;
+
+.none-java{
+	color : black;
 }
 </style>
 <body>
-	<p>Hello</p>
-	안녕하세요.
-	<div id="rDiv">니하오.</div>
-	<div id="hiDiv">하이</div>
+<div>
+	<label for="id">아이디 : </label><input type="text" id="id"><br>
+	<label for="pwd" class="none-java">비밀번호 : </label><input type="text" id="pwd"><br>
+	<button class="btn_login">로그인</button>
+	<table>
+		<tr>
+			<td>
+				<label class="none-java">하하</label>
+			</td>
+		</tr>
+	</table>
+</div>
+<label>아이디와 비밀번호는 필수입니다.</label>
 </body>
 </html>
