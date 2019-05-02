@@ -1,14 +1,14 @@
 package com.osf.web.service.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
-import javax.sound.sampled.AudioFormat.Encoding;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.filter.CharacterEncodingFilter;
 
+import com.osf.web.dao.DeptDAO;
 import com.osf.web.dao.EmpDAO;
 import com.osf.web.service.EmpService;
 
@@ -17,6 +17,8 @@ public class EmpServiceImpl implements EmpService {
 
 	@Autowired
 	private EmpDAO edao;
+	@Autowired
+	private DeptDAO ddao;
 	
 	public boolean loginEmp(Map<String, String> emp, HttpSession hs) {
 		Map<String,String> dbEmp = edao.selectEmpById(emp);
@@ -28,11 +30,15 @@ public class EmpServiceImpl implements EmpService {
 		
 		if("2".equals(dbEmp.get("LVL"))) {
 			emp.put("lvl", "1");
-			hs.setAttribute("empList", edao.selectEmpList(emp));
+			hs.setAttribute("empList", edao.selectEmpList2(emp));
 		}
 		
 		hs.setAttribute("emp",dbEmp);
 		return true;
+	}
+
+	public List<Map<String, String>> selectDeptList() {
+		return ddao.selectDeptList();
 	}
 
 }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.osf.web.dao.EmpDAO;
+import com.osf.web.vo.EmpVO;
 
 @Repository
 public class EmpDAOImpl implements EmpDAO {
@@ -23,6 +24,10 @@ public class EmpDAOImpl implements EmpDAO {
 	public List<Map<String, String>> selectEmpList(Map<String, String> emp) {
 
 		return ss.selectList("emp.selectEmpList",emp);
+	}
+
+	public List<EmpVO> selectEmpList2(Map<String, String> emp) {
+		return ss.selectList("emp.selectEmpList2",emp);
 	}
 
 }

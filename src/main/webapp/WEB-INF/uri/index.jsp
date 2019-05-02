@@ -17,8 +17,13 @@
     <!-- Custom styles for this template -->
     <link href="/resources/css/signin.css" rel="stylesheet">
   </head>
-  
+  <script>
+  	function goEmpInsertPage(){
+  		location.href='/emp/insert';
+  	}
+  </script>
   <body class="text-center">
+  <!-- ${empList} -->
   <div class="container">
   	${emp.ENAME}님 환영합니다.
   	<c:if test="${emp.LVL==2}">
@@ -29,17 +34,28 @@
   				<th>이름</th>
   				<th>ID</th>
   				<th>PWD</th>
+  				<th>Commition</th>
   			</tr>
   			<!-- <c:forEach items="#{empList}" var="e"> 나는 왜 이걸로 했을때도 나오는거야 ?????????? #으로 했는데 </c:forEach> -->
-  			<c:forEach items="${empList}" var="e">	
+  			<%-- <c:forEach items="${empList}" var="e">	
   			<tr>
   				<td>${e.EMPNO}</td>
   				<td>${e.ENAME}</td>
   				<td>${e.ID}</td>
   				<td>${e.PWD}</td>
   			</tr>
+  			</c:forEach>  --%>
+  			<c:forEach items="${empList}" var="e">	
+  			<tr>
+  				<td>${e.empNo}</td>
+  				<td>${e.ename}</td>
+  				<td>${e.id}</td>
+  				<td>${e.pwd}</td>
+  				<td>${e.comm}</td>
+  			</tr>
   			</c:forEach>
   		</table>
+  		<button onclick="goEmpInsertPage()">사원등록</button>
   	</c:if>
   </div>  
   </body>
